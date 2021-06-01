@@ -4,7 +4,7 @@ const UserSchema = new mongoose.Schema(
   {
     username: {
       type: String,
-      required: true,
+      require: true,
       min: 3,
       max: 20,
       unique: true,
@@ -32,7 +32,7 @@ const UserSchema = new mongoose.Schema(
       type: Array,
       default: [],
     },
-    following: {
+    followings: {
       type: Array,
       default: [],
     },
@@ -42,7 +42,7 @@ const UserSchema = new mongoose.Schema(
     },
     desc: {
       type: String,
-      max: 200,
+      max: 50,
     },
     city: {
       type: String,
