@@ -16,7 +16,7 @@ const path = require("path");
 dotenv.config();
 
 mongoose.connect(
-  "mongodb+srv://Aditya77Kushwaha:Aditya123@cluster0.nqzx4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  "mongodb+srv://user123:BhZyVNkk5Vncm1Fw@cluster0.nqzx4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
   { useNewUrlParser: true, useUnifiedTopology: true },
   () => {
     console.log("Connected to MongoDB");
