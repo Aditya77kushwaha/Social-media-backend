@@ -49,11 +49,33 @@ router.get("/", async (req, res) => {
       ? await User.findById(userId)
       : await User.findOne({ username: username });
     const { password, updatedAt, ...other } = user._doc;
+    console.log(other);
     res.status(200).json(other);
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
+// router.get("/search", (req, res) => {
+//   const  q  = req.query.username;
+//   console.log(q);
+//   const keys = ["username", "email"];
+//   try {
+//     // const user = await User.findOne({ username: q });
+//     // const { password, updatedAt, ...other } = user._doc;
+//     const search = (data) => {
+//       return data.filter((item) =>
+//         keys.some((key) => item[key].toLowerCase().includes(q))
+//       );
+//     };
+//     // res.status(200).json(other);
+
+//     q ? res.json(search(User)) : res.json({});
+//   } catch (err) {
+//     res.status(500).json(err);
+//     console.log(err);
+//   }
+// });
 
 //get friends
 router.get("/friends/:userId", async (req, res) => {
@@ -69,7 +91,7 @@ router.get("/friends/:userId", async (req, res) => {
       const { _id, username, profilePicture } = friend;
       friendList.push({ _id, username, profilePicture });
     });
-    res.status(200).json(friendList)
+    res.status(200).json(friendList);
   } catch (err) {
     res.status(500).json(err);
   }
