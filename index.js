@@ -15,13 +15,11 @@ const path = require("path");
 
 dotenv.config();
 
-mongoose.connect(
-  "mongodb+srv://user123:kusCM3QnjEECoInn@cluster0.kvvb1.mongodb.net/?retryWrites=true&w=majority",
-  { useNewUrlParser: true, useUnifiedTopology: true },
-  () => {
-    console.log("Connected to MongoDB");
-  }
-);
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => console.log("Connected to MongoDB"))
+  .catch((err) => console.error("MongoDB connection error:", err));
+  
 app.use("/images", express.static(path.join(__dirname, "public/images")));
 
 //middleware
